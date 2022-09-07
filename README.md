@@ -13,4 +13,4 @@ modules inorder the lack of webpack.
 
 The other 4 JS files (user, userdatabase, product, productdatabase)
 our main classes and these files are our modules, in other words
-our project back end.
+our project's back end.
