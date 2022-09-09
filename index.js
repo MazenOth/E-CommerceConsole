@@ -14,28 +14,33 @@ let input = prompt("Please choose one of the following: \n 1- Signin \n 2- Signu
 if(input == 1) {
     email = prompt("Please insert your email");
 
-    for (let i = 0; i < userDatabase.users.length; i++) {
-        if(userDatabase.users[i].email == email) {
+    for (let i = 0; i < userDatabase.getUsers.length; i++) {
+        if(userDatabase.getUsers[i].getEmail == email) {
             console.log("email is correct!");
-            password = prompt("Please insert your password");
-            
+        } else {
+            throw new Error("Please check your email!");
         }
     }
-    for (let i = 0; i < userDatabase.users.length; i++) {
-        if(userDatabase.users[i].password == password) {
+    password = prompt("Please insert your password");    
+
+    for (let i = 0; i < userDatabase.getUsers.length; i++) {
+        if(userDatabase.getUsers[i].getPassword == password) {
             console.log("password is correct!");
             console.log("Singned in successfully!");
+        } else {
+            throw new Error("Please check your password!");
         }
     }
 }    
 
 if(input == 2) {
     email = prompt("Please insert your new email");
+    userDatabase.getUser1.setEmail = email;
     password = prompt("Please insert your new password");
-    const user1 = new User(email, password);
-    userDatabase.addUser(user1);
+    userDatabase.getUser1.setPassword = password;
+    userDatabase.callAddNewUser();
     console.log(`You've Successfuly Signed Up and this is your new user below:`); 
-    console.log(user1);  
+    console.log(userDatabase.getUser1);  
 }
 
 
@@ -45,44 +50,50 @@ const productDatabase = new ProductDatabase();
 var productName;
 var price;
 var category;
-var productNumber;
 
 if(input2 == 1) {
     productName = prompt("Please insert your new Product Name");
+    productDatabase.getProduct1.setName = productName;
     price = prompt("Please insert your new Product Price");
+    productDatabase.getProduct1.setPrice = price;
     category = prompt("Please insert your new Product Category");
-    const product1 = new Product(productName, price, category);
-    productDatabase.addProduct(product1);
+    productDatabase.getProduct1.setCategory = category;
+    
+    productDatabase.CallAddProduct();
     console.log("You've Successfuly added new product, Check it out:");
-    console.log(product1);
+    console.log(productDatabase.getProduct1);
 }
+
 if(input2 == 2) {
     productName = prompt("Please insert your new Product Name");
+    productDatabase.getTestProduct.setName = productName;
     price = prompt("Please insert your new Product Price");
+    productDatabase.getTestProduct.setPrice = price;
     category = prompt("Please insert your new Product Category");
+    productDatabase.getTestProduct.setCategory = category;
     
-    productDatabase.updateProduct(productName, price, category);
+    productDatabase.callUpdateProduct();
     console.log("You've Successfuly updated your product, Check it out now:");
-    console.log(productDatabase.testProduct);
+    console.log(productDatabase.getTestProduct);
 }
 
 if(input2 == 3) {
     var inp = prompt("Are you sure you wanna delete your product? \n 1-Yes \n 2-No");
     if(inp == 1) {
-        productDatabase.deleteProduct();
+        productDatabase.callDeleteProduct();
         console.log("You've Successfuly deleted your product");
-        if(productDatabase.products.length == 0) {
+        if(productDatabase.getProducts.length == 0) {
             console.log("You don't have any products now :(")
         }
     }else{
-        console.log("Nothing Deleted, Check your product:");
-        console.log(productDatabase.products[0]);
+        console.log("Nothing Deleted, Check your products:");
+        console.log(productDatabase.getProducts[0]);
     } 
 }
 
 if(input2 == 4) {
     console.log("Here are your products:");
-    productDatabase.listProducts();
+    productDatabase.callListProducts();
 }
 
 
