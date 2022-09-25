@@ -1,6 +1,6 @@
 
-import { Customer } from './customer.js';
-import{User} from './user.js';
+import { Customer } from '../Entities/customer.js';
+import{User} from '../Entities/user.js';
 
 export class UserDatabase{
     #testUser = new User("test@", 5555);

@@ -1,4 +1,4 @@
-import { Product } from "./product.js";
+import { Product } from "../Entities/product.js";
 import { UserDatabase } from "./userdatabase.js";
 
 export class ProductDatabase extends UserDatabase {
