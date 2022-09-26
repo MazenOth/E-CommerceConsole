@@ -1,10 +1,12 @@
 # sellerconsole
-Console based program using OOP concepts in JS only and prompt as frontend.
+Console based program using OOP concepts in JS only and prompt as frontend, with help of MVC architecture.
 
-This project useing JS classes and some OOP concepts like (Modules, ES6 Classes, Encapsulation, Accessors, Getters and Setters,...) for practice purpose.
+This project useing JS classes and some OOP concepts like (Modules, ES6 Classes, Inheritance, Encapsulation, Accessors, Getters and Setters,...) for practice purpose.
 
-In index.js file you will find our 4 modules imported and our program's front end using prompt to be viewed as prompt input box in Google developer tools.
+Back-end files found in model folder mainly.
 
-index.html file made for live server extension and to read modules inorder the lack of webpack.
+MVC architecture used to enhancing project's design.
 
-The other 4 JS files (user, userdatabase, product, productdatabase) our main classes and these files are our modules, in other words our project's back end.
+In index.js in view folder you will find modules imported and our program's front end using prompt to be viewed as prompt input box in Google developer tools.
+
+index.html file made for live server extension in VSC and to read modules to simplify testing.
