@@ -3,39 +3,25 @@ import { UserDatabase } from "../Model/Repos/userdatabase.js";
 import { Product } from "../Model/Entities/product.js";
 import { ProductDatabase } from "../Model/Repos/productdatabase.js";
 import { Customer } from "../Model/Entities/customer.js";
-import { Service } from "../Service/service.js";
+import { ProductService } from "../Service/product_service.js";
 
 const userDatabase = new UserDatabase();
-const service = new Service();
+const productService = new ProductService();
 
-export class Controller {
-  customerSignIn(email, password) {
-    email = prompt("Please insert your email");
-    service.customerSignInEmail(email);
-    password = prompt("Please insert your password");
-    service.customerSignInPassword(password);
-  }
-  customerSignUp(email, password, balance) {
-    email = prompt("Please insert your new email");
-    service.customerSignUpEmail(email);
-    password = prompt("Please insert your new password");
-    service.customerSignUpPassword(password);
-    balance = prompt("Please insert your balance");
-    service.customerSignUpBalance(balance);
-  }
+export class ProductController {
   customerFeatures(productName, email, password, balance, input) {
     input = prompt(
       "Please choose one of the following: \n 1-List Products \n 2-Buy Product \n 3-Edit Account Data"
     );
 
     if (input == 1) {
-      service.customerFeaturesListProducts();
+      productService.customerFeaturesListProducts();
     }
     if (input == 2) {
       productName = prompt(
         "Please insert your product's name you want to buy:"
       );
-      service.customerFeaturesBuyProduct(productName);
+      productService.customerFeaturesBuyProduct(productName);
     }
     if (input == 3) {
       input = prompt(
@@ -45,32 +31,19 @@ export class Controller {
         email = prompt(
           `Your previous mail is >> ${userDatabase.getCustomer1.getEmail} << please insert your new mail:`
         );
-        service.customerFeaturesEditAccountDataEmail(email);
+        productService.customerFeaturesEditAccountDataEmail(email);
       }
       if (input == 2) {
         password = prompt("please insert your old password:");
-        service.customerFeaturesEditAccountDataPassword(password);
+        productService.customerFeaturesEditAccountDataPassword(password);
       }
       if (input == 3) {
         balance = prompt(
           `Your old balance is >> ${userDatabase.getCustomer1.getBalance}LE << \nPlease insert your new balance:`
         );
-        service.customerFeaturesEditAccountDataBalance(balance);
+        productService.customerFeaturesEditAccountDataBalance(balance);
       }
     }
-  }
-
-  adminSignIn(email, password) {
-    email = prompt("Please insert your email");
-    service.adminSignInEmail(email);
-    password = prompt("Please insert your password");
-    service.adminSignInPassword(password);
-  }
-  adminSignUp(email, password) {
-    email = prompt("Please insert your new email");
-    service.adminSignUpEmail(email);
-    password = prompt("Please insert your new password");
-    service.adminSignUpPassword(password);
   }
   adminFeatures(productName, price, category, input) {
     input = prompt(
@@ -79,28 +52,28 @@ export class Controller {
 
     if (input == 1) {
       productName = prompt("Please insert your new Product Name");
-      service.adminFeaturesAddProductName(productName);
+      productService.adminFeaturesAddProductName(productName);
       price = prompt("Please insert your new Product Price");
-      service.adminFeaturesAddProductPrice(price);
+      productService.adminFeaturesAddProductPrice(price);
       category = prompt("Please insert your new Product Category");
-      service.adminFeaturesAddProductCategory(category);
+      productService.adminFeaturesAddProductCategory(category);
     }
 
     if (input == 2) {
       productName = prompt("Please insert your new Product Name");
-      service.adminFeaturesUpdateProductName(productName);
+      productService.adminFeaturesUpdateProductName(productName);
       price = prompt("Please insert your new Product Price");
-      service.adminFeaturesUpdateProductPrice(price);
+      productService.adminFeaturesUpdateProductPrice(price);
       category = prompt("Please insert your new Product Category");
-      service.adminFeaturesUpdateProductCategory(category);
+      productService.adminFeaturesUpdateProductCategory(category);
     }
 
     if (input == 3) {
-      service.adminFeaturesDeleteProduct();
+      productService.adminFeaturesDeleteProduct();
     }
 
     if (input == 4) {
-      service.adminFeaturesListProducts();
+      productService.adminFeaturesListProducts();
     }
   }
 }

@@ -1,8 +1,10 @@
-import { Controller } from "../Controller/controller.js";
-import { Service } from "../Service/service.js";
+import { AuthorizationController } from "../Controller/authorization_controller.js";
+import { ProductController } from "../Controller/product_controller.js";
 
-const controller = new Controller();
-const service = new Service();
+
+const authorizationController = new AuthorizationController();
+const productController = new ProductController();
+
 
 var input = prompt("Please choose your role: \n 1- Customer \n 2- Admin");
 
@@ -12,12 +14,12 @@ if (input == 1) {
     "Please choose one of the following: \n 1- Signin \n 2- Signup"
   );
   if (input == 1) {
-    controller.customerSignIn();
-    controller.customerFeatures();
+    authorizationController.customerSignIn();
+    productController.customerFeatures();
   }
   if (input == 2) {
-    controller.customerSignUp();
-    controller.customerFeatures();
+    authorizationController.customerSignUp();
+    productController.customerFeatures();
   }
 }
 
@@ -27,11 +29,11 @@ if (input == 2) {
     "Please choose one of the following: \n 1- Signin \n 2- Signup"
   );
   if (input == 1) {
-    controller.adminSignIn();
-    controller.adminFeatures();
+    authorizationController.adminSignIn();
+    productController.adminFeatures();
   }
   if (input == 2) {
-    controller.adminSignUp();
-    controller.adminFeatures();
+    authorizationController.adminSignUp();
+    productController.adminFeatures();
   }
 }
