@@ -1,12 +1,15 @@
-import { AuthorizationController } from "../Controller/authorization_controller.js";
-import { ProductController } from "../Controller/product_controller.js";
+import { CustomerAuthController } from "../Controller/customerauth_controller.js";
+import { CustomerProductController } from "../Controller/customerproduct_controller.js";
+import { SellerAuthController } from "../Controller/sellerauth_controller.js";
+import { SellerProductController } from "../Controller/sellerproduct_controller.js";
+
+const customerAuthController = new CustomerAuthController();
+const customerProductController = new CustomerProductController();
+const sellerAuthController = new SellerAuthController();
+const sellerProductController = new SellerProductController();
 
 
-const authorizationController = new AuthorizationController();
-const productController = new ProductController();
-
-
-var input = prompt("Please choose your role: \n 1- Customer \n 2- Admin");
+var input = prompt("Please choose your role: \n 1- Customer \n 2- Seller");
 
 //Customer
 if (input == 1) {
@@ -14,12 +17,12 @@ if (input == 1) {
     "Please choose one of the following: \n 1- Signin \n 2- Signup"
   );
   if (input == 1) {
-    authorizationController.customerSignIn();
-    productController.customerFeatures();
+    customerAuthController.SignIn();
+    customerProductController.Features();
   }
   if (input == 2) {
-    authorizationController.customerSignUp();
-    productController.customerFeatures();
+    customerAuthController.SignUp();
+    customerProductController.Features();
   }
 }
 
@@ -29,11 +32,11 @@ if (input == 2) {
     "Please choose one of the following: \n 1- Signin \n 2- Signup"
   );
   if (input == 1) {
-    authorizationController.adminSignIn();
-    productController.adminFeatures();
+    sellerAuthController.SignIn();
+    sellerProductController.Features();
   }
   if (input == 2) {
-    authorizationController.adminSignUp();
-    productController.adminFeatures();
+    sellerAuthController.SignUp();
+    sellerProductController.Features();
   }
 }

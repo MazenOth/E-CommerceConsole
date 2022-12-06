@@ -1,15 +1,15 @@
 import { Product } from "../Entities/product.js";
-import { UserDatabase } from "./userdatabase.js";
+import { CustomerDatabase } from "./customerdatabase.js";
 
-export class ProductDatabase extends UserDatabase {
+export class ProductDatabase extends CustomerDatabase {
   #testProduct = new Product("test", 50, "test");
   get getTestProduct() {
     return this.#testProduct;
   }
 
-  #product1 = new Product("product1", 50, "product1");
-  get getProduct1() {
-    return this.#product1;
+  #newProduct = new Product("product1", 50, "product1");
+  get getNewProduct() {
+    return this.#newProduct;
   }
 
   #products = [this.#testProduct];
@@ -18,7 +18,7 @@ export class ProductDatabase extends UserDatabase {
   }
 
   #addProduct() {
-    this.#products.push(this.#product1);
+    this.#products.push(this.#newProduct);
   }
   CallAddProduct() {
     return this.#addProduct();
@@ -50,11 +50,11 @@ export class ProductDatabase extends UserDatabase {
   }
 
   buyProduct(name) {
-    // console.log(this.getProducts[0].getName);
     for (let i = 0; i < this.#products.length; i++) {
       if (this.#products[i].getName == name) {
-        var newBalance = this.getCustomer1.getBalance - this.#products[i].getPrice;
-        this.getCustomer1.setBalance = newBalance;
+        var newBalance =
+          this.getNewCustomer.getBalance - this.#products[i].getPrice;
+        this.getNewCustomer.setBalance = newBalance;
         console.log(`Your new balance is ${newBalance}LE.`);
       } else {
         throw new Error("Please check your product's name!");

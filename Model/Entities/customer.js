@@ -7,20 +7,21 @@ export class Customer extends User {
     this.#balance = Customer.#validateBalance(balance);
   }
 
-  static #validateBalance(value) {
-    if (value < 0) {
+  static #validateBalance(balance) {
+    if (balance < 0) {
       throw new Error("Please enter a valid amount of balance!");
     }
-    return value;
+    return balance;
   }
 
   get getBalance() {
     return this.#balance;
   }
-  set setBalance(value) {
-    if (value < 0) {
+  set setBalance(balance) {
+    if (balance < 0) {
       throw new Error("Please enter a valid amount of balance!");
     }
-    this.#balance = value;
+    this.#balance = balance;
   }
 }
+
