@@ -1,8 +1,8 @@
-import { Product } from "../Entities/product.js";
+import { Product } from "../entities/Product.js";
 import { CustomerDatabase } from "./customerdatabase.js";
 
 export class ProductDatabase extends CustomerDatabase {
-  #testProduct = new Product("test", 50, "test");
+  #testProduct = new Product("test", 100, "test");
   get getTestProduct() {
     return this.#testProduct;
   }
@@ -17,47 +17,32 @@ export class ProductDatabase extends CustomerDatabase {
     return this.#products;
   }
 
-  #addProduct() {
+  addProduct() {
     this.#products.push(this.#newProduct);
   }
-  CallAddProduct() {
-    return this.#addProduct();
-  }
 
-  #updateProduct() {
+  updateProduct() {
     this.#products[0].setName = this.#testProduct.getName;
     this.#products[0].setPrice = this.#testProduct.getPrice;
     this.#products[0].setCategory = this.#testProduct.getCategory;
   }
-  callUpdateProduct() {
-    return this.#updateProduct();
-  }
 
-  #deleteProduct() {
+  deleteProduct() {
     this.#products.pop();
   }
-  callDeleteProduct() {
-    return this.#deleteProduct();
-  }
 
-  #listProducts() {
+  listProducts() {
     for (let i = 0; i < this.#products.length; i++) {
       console.log(this.#products[i]);
     }
   }
-  callListProducts() {
-    return this.#listProducts();
-  }
 
-  buyProduct(name) {
+  getProductPrice(name) {
     for (let i = 0; i < this.#products.length; i++) {
       if (this.#products[i].getName == name) {
-        var newBalance =
-          this.getNewCustomer.getBalance - this.#products[i].getPrice;
-        this.getNewCustomer.setBalance = newBalance;
-        console.log(`Your new balance is ${newBalance}LE.`);
+        return this.#products[i].getPrice;
       } else {
-        throw new Error("Please check your product's name!");
+        return null;
       }
     }
   }

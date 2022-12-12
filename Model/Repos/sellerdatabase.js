@@ -1,4 +1,4 @@
-import { Seller } from "../Entities/seller.js";
+import { Seller } from "../entities/Seller.js";
 
 export class SellerDatabase {
   #testSeller = new Seller("test@", 5555);
@@ -16,10 +16,7 @@ export class SellerDatabase {
     return this.#sellers;
   }
 
-  #addNewSeller() {
+  addNewSeller() {
     this.#sellers.push(this.#newSeller);
-  }
-  callAddNewSeller() {
-    return this.#addNewSeller();
   }
 }

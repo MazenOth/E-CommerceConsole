@@ -1,4 +1,4 @@
-import { Customer } from "../Entities/customer.js";
+import { Customer } from "../entities/Customer.js";
 
 export class CustomerDatabase {
   #testCustomer = new Customer("test@", 5555, 5000);
@@ -16,10 +16,7 @@ export class CustomerDatabase {
     return this.#customers;
   }
 
-  #addNewCustomer() {
+  addNewCustomer() {
     this.#customers.push(this.#newCustomer);
-  }
-  callAddNewCustomer() {
-    return this.#addNewCustomer();
   }
 }

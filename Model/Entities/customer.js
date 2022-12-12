@@ -1,6 +1,6 @@
-import { User } from "./user.js";
+import { ApplicationUser } from "./ApplicationUser.js";
 
-export class Customer extends User {
+export class Customer extends ApplicationUser {
   #balance;
   constructor(email, password, balance) {
     super(email, password);
@@ -24,4 +24,3 @@ export class Customer extends User {
     this.#balance = balance;
   }
 }
-
