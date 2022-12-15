@@ -2,9 +2,12 @@ import { SellerProductService } from "../service/SellerProductService.js";
 
 const sellerProductService = new SellerProductService();
 
+// Naming is not right it should be SellerController
 export class SellerProductController {
+  // method doesn't follow the Single Responality principal. Make every method independent 
   features(productName, price, category, input) {
     input = prompt(
+      // List Products is redundant, think how we could solve this issue. Hint: Making another class is fine
       "Please choose one of the following: \n 1-Add Product \n 2-Update Product \n 3-Delete Product \n 4-List Products"
     );
 

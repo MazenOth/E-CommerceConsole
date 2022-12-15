@@ -3,6 +3,9 @@ import { CustomerDatabase } from "../model/repos/CustomerDatabase.js";
 const customerDatabase = new CustomerDatabase();
 
 export class CustomerAuthService {
+ 
+  // checking email and password should be in 1 method
+  // sign in is redundant
   signInEmail(email) {
     for (let i = 0; i < customerDatabase.getCustomers.length; i++) {
       if (customerDatabase.getCustomers[i].getEmail == email) {
@@ -22,6 +25,9 @@ export class CustomerAuthService {
       }
     }
   }
+
+  // sign up should be in one method
+  // sign up is redundant
   signUpEmail(email) {
     customerDatabase.getNewCustomer.setEmail = email;
   }

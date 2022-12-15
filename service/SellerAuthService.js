@@ -3,6 +3,9 @@ import { SellerDatabase } from "../Model/Repos/sellerdatabase.js";
 const sellerDatabase = new SellerDatabase();
 
 export class SellerAuthService {
+
+  // checking email and password should be in 1 method
+  // sign in is redundant
   signInEmail(email) {
     for (let i = 0; i < sellerDatabase.getSellers.length; i++) {
       if (sellerDatabase.getSellers[i].getEmail == email) {
@@ -22,6 +25,9 @@ export class SellerAuthService {
       }
     }
   }
+
+  // sign up should be in one method
+  // sign up is redundant
   signUpEmail(email) {
     sellerDatabase.getNewSeller.setEmail = email;
   }
