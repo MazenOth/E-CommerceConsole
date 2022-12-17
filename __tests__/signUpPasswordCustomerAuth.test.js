@@ -1,4 +1,4 @@
-const customerAuthSignUpPassword = require("../../project_unit_testing/customer_auth_service/signUpPasswordCustomerAuth");
+const customerAuthSignUpPassword = require("../project_unit_testing/customer_auth_service/signUpPasswordCustomerAuth");
 
 describe("Testig of 'signUpPassword()' method inside 'CustomerAuthService' class", () => {
   test("Entering valid password", () => {

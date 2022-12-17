@@ -1,7 +1,7 @@
 import { Product } from "../entities/Product.js";
-import { CustomerDatabase } from "./customerdatabase.js";
+import { UsersDatabase } from "../repos/UsersDatabase.js";
 
-export class ProductDatabase extends CustomerDatabase {
+export class ProductDatabase extends UsersDatabase {
   #testProduct = new Product("test", 100, "test");
   get getTestProduct() {
     return this.#testProduct;

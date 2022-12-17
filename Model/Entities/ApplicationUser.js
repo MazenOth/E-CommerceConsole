@@ -1,26 +1,14 @@
 export class ApplicationUser {
   #email;
   #password;
+  #role;
+  #balance;
 
-  constructor(email, password) {
-    this.#email = ApplicationUser.#validateEmail(email);
-    this.#password = ApplicationUser.#validatePassword(password);
-  }
-
-  static #validateEmail(email) {
-    if (email === "") {
-      throw new Error("You cannot enter empty email!");
-    }
-    return email;
-  }
-
-  static #validatePassword(password) {
-    if (password.toString().length < 4) {
-      throw new Error(
-        "You cannot enter password less than 4 charachters or numbers!"
-      );
-    }
-    return password;
+  constructor(email, password, role, balance = 0) {
+    this.#email = email;
+    this.#password = password;
+    this.#role = role;
+    this.#balance = balance;
   }
 
   get getEmail() {
@@ -45,5 +33,22 @@ export class ApplicationUser {
       );
     }
     this.#password = newPassword;
+  }
+
+  get getRole() {
+    return this.#role;
+  }
+  set setRole(role) {
+    this.#role = role;
+  }
+
+  get getBalance() {
+    return this.#balance;
+  }
+  set setBalance(balance) {
+    if (balance < 0) {
+      throw new Error("Please enter a valid amount of balance!");
+    }
+    this.#balance = balance;
   }
 }

@@ -2,7 +2,7 @@ import { ProductDatabase } from "../model/repos/productdatabase.js";
 
 const productDatabase = new ProductDatabase();
 
-export class SellerProductService {
+export class SellerService {
   addProductName(productName) {
     productDatabase.getNewProduct.setName = productName;
   }
@@ -41,9 +41,5 @@ export class SellerProductService {
       console.log("Nothing Deleted, Check your products:");
       console.log(productDatabase.getProducts[0]);
     }
-  }
-  listProducts() {
-    console.log("Here are your products:");
-    productDatabase.listProducts();
   }
 }

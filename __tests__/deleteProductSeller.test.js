@@ -1,4 +1,4 @@
-const deleteProduct = require("../../project_unit_testing/seller_product_service/deleteProductSeller");
+const deleteProduct = require("../project_unit_testing/seller_product_service/deleteProductSeller");
 
 describe("Testig of 'deleteProduct()' method inside 'SellerProductService' class", () => {
   test("Have products to delete", () => {
