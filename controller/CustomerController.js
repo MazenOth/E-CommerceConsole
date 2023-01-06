@@ -1,34 +1,29 @@
 import { CustomerService } from "../service/CustomerService.js";
-import { UsersDatabase } from "../Model/Repos/UsersDatabase.js";
+import { InputScanner } from "../util/InputScanner.js";
+import { ProductController } from "../controller/ProductController.js";
 
-const usersDatabase = new UsersDatabase();
 const customerService = new CustomerService();
+const inputScanner = new InputScanner();
+const productController = new ProductController();
 
 export class CustomerController {
-  buyProduct(productName) {
-    productName = prompt("Please insert your product's name you want to buy:");
-    customerService.buyProduct(productName);
+  buyProduct() {
+    customerService.buyProduct(inputScanner.productName());
   }
 
-  editAccountData(email, password, balance, input) {
-    input = prompt(
-      "Choose what you want to update: \n 1-Email \n 2-Password \n 3-Balance"
-    );
-    if (input == 1) {
-      email = prompt(
-        `Your previous mail is >> ${usersDatabase.getTestCustomer.getEmail} << please insert your new mail:`
-      );
-      customerService.editAccountDataEmail(email);
+  editAccountData() {
+    if (inputScanner.input() == 1) {
+      customerService.editAccountDataEmail(inputScanner.email());
     }
     if (input == 2) {
-      password = prompt("please insert your old password:");
-      customerService.editAccountDataPassword(password);
+      customerService.editAccountDataPassword(inputScanner.password());
     }
     if (input == 3) {
-      balance = prompt(
-        `Your old balance is >> ${usersDatabase.getTestCustomer.getBalance}LE << \nPlease insert your new balance:`
-      );
-      customerService.editAccountDataBalance(balance);
+      customerService.editAccountDataBalance(inputScanner.balance());
     }
+  }
+
+  listProducts() {
+    productController.listProducts();
   }
 }

@@ -1,27 +1,27 @@
 import { UsersAuthService } from "../service/UsersAuthService.js";
+import { InputScanner } from "../util/InputScanner.js";
 
 const usersAuthService = new UsersAuthService();
+const inputScanner = new InputScanner();
 
 export class UsersAuthController {
-  signIn(email, password) {
-    email = prompt("Please insert your email");
-    password = prompt("Please insert your password");
-    usersAuthService.signIn(email, password);
+  signIn() {
+    usersAuthService.signIn(inputScanner.email(), inputScanner.password());
   }
 
-  signUp(email, password, role, balance) {
-    email = prompt("Please insert your new email");
-    password = prompt("Please insert your new password");
-    role = prompt("Please insert your role for certinity");
-    usersAuthService.signUp(email, password, role);
+  signUp() {
+    usersAuthService.signUp(
+      inputScanner.email(),
+      inputScanner.password(),
+      inputScanner.role()
+    );
     if (role == "customer") {
-      balance = prompt("Please insert your balance");
-      usersAuthService.signUpBalance(balance);
+      usersAuthService.signUpBalance(inputScanner.balance());
       usersAuthService.showNewUser();
     } else if (role == "seller") {
       usersAuthService.showNewUser();
     } else {
-      throw new Error(`Please inseret right role ("customer" or "seller")`)
+      throw new Error(`Please inseret right role ("customer" or "seller")`);
     }
   }
 }

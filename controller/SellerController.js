@@ -1,28 +1,29 @@
 import { SellerService } from "../service/SellerService.js";
+import { InputScanner } from "../util/InputScanner.js";
+import { ProductController } from "../controller/ProductController.js";
 
+const inputScanner = new InputScanner();
 const sellerService = new SellerService();
+const productController = new ProductController();
 
 export class SellerController {
-  
-  addProduct(productName, price, category) {
-    productName = prompt("Please insert your new Product Name");
-    sellerService.addProductName(productName);
-    price = prompt("Please insert your new Product Price");
-    sellerService.addProductPrice(price);
-    category = prompt("Please insert your new Product Category");
-    sellerService.addProductCategory(category);
+  addProduct() {
+    sellerService.addProductName(inputScanner.productName());
+    sellerService.addProductPrice(inputScanner.price());
+    sellerService.addProductCategory(inputScanner.category());
   }
 
-  updateProduct(productName, price, category) {
-    productName = prompt("Please insert your new Product Name");
-    sellerService.updateProductName(productName);
-    price = prompt("Please insert your new Product Price");
-    sellerService.updateProductPrice(price);
-    category = prompt("Please insert your new Product Category");
-    sellerService.updateProductCategory(category);
+  updateProduct() {
+    sellerService.updateProductName(inputScanner.productName());
+    sellerService.updateProductPrice(inputScanner.price());
+    sellerService.updateProductCategory(inputScanner.category());
   }
 
   deleteProduct() {
     sellerService.deleteProduct();
+  }
+
+  listProducts() {
+    productController.listProducts();
   }
 }
