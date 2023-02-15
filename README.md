@@ -1,4 +1,4 @@
-# AmazonConsole
+# E-commerce Console
 Console based program using OOP concepts in JS only and prompt as frontend, with help of MVC architecture.
 
 This project useing JS classes and some OOP concepts like (Modules, ES6 Classes, Inheritance, Encapsulation, Accessors, Getters and Setters,...) for practice purpose.
